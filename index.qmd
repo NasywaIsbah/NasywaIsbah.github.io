@@ -1,0 +1,150 @@
+---
+title: "Pengaruh Tingkat Pengangguran terhadap Jumlah Penduduk Usia Produktif (15-64 tahun) di Provinsi Banten 2010-2022"
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "Nasywa Isbah Hidayah"
+date: 2024-01-09
+number-sections: true
+format:
+  html: default
+  docx: default
+---
+
+![](poltekapp.jpg){width="280"}
+
+## Pendahuluan
+
+### Latar belakang
+
+Indonesia merupakan negara dengan penduduk terpadat keempat di dunia. Artinya, Indonesia merupakan negara yang memiliki banyak sumber daya manusia. Namun, banyaknya sumber daya manusia yang dimiliki tidak dapat dijadikan kemungkinan bahwa semua sumber daya manusia memiliki kualitas yang baik atau kompeten. Hal tersebut menjadi salah satu faktor meningkatnya pengangguran, yang dimana angkatan kerja yang berkompeten hanya sedikit. Selain itu, sifat malas yang dimiliki masyarakat Indonesia juga dapat meningkatkan pengangguran.
+
+Menurut Yanuar (2009), pengangguran adalah keadaan di mana angkatan kerja yang ingin memperoleh pekerjaan tapi belum mendapatkannya. Dapat diartikan bahwa pengangguran merupakan suatu keadaan dimana seseorang yang memiliki keinginan untuk bekerja, namun belum mendapatkan pekerjaan yang diinginkan tersebut.
+
+Banten adalah sebuah provinsi di Pulau Jawa, Indonesia. Sebelumnya, provinsi ini merupakan bagian dari Provinsi Jawa Barat, namun sudah dipisahkan sejak tahun 2000, dengan keputusan Undang-Undang Nomor 23 Tahun 2000. Secara geografis dan dalam pemerintahan, wilayah Banten terutama Kota Tangerang dan Kabupaten Tangerang menjadi wilayah penyangga bagi Jakarta. Selain itu, secara ekonomi wilayah Banten memiliki banyak industri. Namun, tetap saja pengangguran di Provinsi Banten terus meningkat dan saat ini menjadi provinsi dengan tingkat pengangguran tertinggi di Indonesia.
+
+### Ruang lingkup
+
+Sumber atau objek penelitian ini diambil dari Badan Pusat Statistik Provinsi Banten. Ruang lingkup pada penelitian ini mengambil data tingkat pengangguran terbuka di Provinsi Banten (persen) dan data penduduk menurut kelompok usia produktif (15-64 tahun) di Provinsi Banten (jiwa). Data yang digunakan adalah data time series dalam kurun waktu 2010-2022 dengan satuan persen dan jiwa. Data tersebut menjadi objek penelitian ini.
+
+### Rumusan masalah
+
+Berdasarkan uraian latar belakang diatas maka yang menjadi masalah pokok pada penelitian ini adalah:
+
+1.  Apakah tingkat pengangguran berpengaruh pada jumlah penduduk usia produktif di Banten?
+
+2.  Apakah tingkat pengangguran berpengaruh besar terhadap jumlah penduduk usia produktif di Banten?
+
+### Tujuan dan manfaat penelitian
+
+Berdasarkan latar belakang dan permasalahan yang ada maka tujuan dari penelitian ini adalah untuk mengetahui pengaruh jumlah penduduk usia produktif terhadap tingkat pengangguran di Banten.
+
+Adapun manfaat dari penelitian ini, yaitu sebagai berikut : Penelitian ini diharapkan dapat menjadi referensi bagi penulis lain yang ingin menambah wawasan mengenai hubungan antara jumlah penduduk usia produktif dengan tingkat pengangguran. Selain itu, diharapkan penelitian ini dapat menjadi referensi bagi penulis lain dalam mengetahui penelitian menggunakan sistem regresi melalui R Studio.
+
+### Package
+
+Packages yang digunakan antara lain sebagai berikut :
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(WDI)
+```
+
+## Studi pustaka
+
+Menurut Sadono Sukirno (1994), pengangguran adalah suatu keadaan di mana seseorang yang tergolong dalam angkatan kerja ingin mendapatkan pekerjaan tetapi belum dapat memperolehnya. Terdapat berbagai 3 jenis pengangguran, pertama pengangguran terselubung, yang dimana tenaga kerja yang tidak bekerja secara maksimal karena suatu alasan tertentu. Kemudian, setengah menganggur adalah tenaga kerja yang kurang dari 35 jam perminggu. Terakhir pengangguran terbuka, yang dimana tenaga kerja yang sungguh-sungguh tidak memiliki pekerjaan.
+
+Pengangguran merupakan hal yang tidak mudah untuk diatasi. Dapat dikatakan, jika suatu negara ingin mengurangi tingkat pengangguran, maka pendidikan juga perlu ditingkatkan. Pendidikan menjadi peran penting dalam menciptakan sumber daya manusia yang berkualitas dan berkompeten. Banyaknya sumber daya manusia yang berkualitas dan berkompeten, maka hal ini dapat mengurangi tingkat pengangguran. Dalam hal ini, pemerintah harus ikut serta dalam meningkatkan tingkat pendidikan.
+
+## Metode penelitian
+
+### Data
+
+| Tahun | Tingkat Pengangguran (X) | Jumlah Penduduk Usia Produktif (Y) |
+|-------|--------------------------|------------------------------------|
+| 2010  | 13,68                    | 6.131.839                          |
+| 2011  | 13,06                    | 7.460.356                          |
+| 2012  | 10,13                    | 7.661.967                          |
+| 2013  | 9,9                      | 7.786.417                          |
+| 2014  | 9,07                     | 7.978.370                          |
+| 2015  | 9,55                     | 8.165.589                          |
+| 2016  | 8,92                     | 8.350.208                          |
+| 2017  | 9,28                     | 8.531.161                          |
+| 2018  | 8,47                     | 8.706.909                          |
+| 2019  | 8,11                     | 8.879.282                          |
+| 2020  | 10,64                    | 8.331.538                          |
+| 2021  | 8,98                     | 8.443.389                          |
+| 2022  | 8,09                     | 8.575.240                          |
+
+Penelitian ini menggunakan data tingkat pengangguran dan data penduduk menurut kelompok usia produktif (15-64 tahun) di Provinsi Banten tahun 2010-2022, data yang dipakai ialah data yang telah diolah dengan sumber Badan Pusat Statistik Provinsi Banten.
+
+Baca data
+
+```{r}
+#import dataset
+library(readxl)
+dat<-read_excel('C:/Users/ASUS/Documents/UAS Metopel/Projek UAS Metopel/Data UAS Projek Metopel.xlsx')
+head(dat)
+```
+
+X = Tingkat Pengangguran
+
+Y = Jumlah Penduduk Usia Produktif
+
+```{r}
+library('readxl')
+library('tidyverse')
+dat<-read_excel('C:/Users/ASUS/Documents/UAS Metopel/Projek UAS Metopel/Data UAS Projek Metopel.xlsx')
+plot(dat$X,dat$Y,xlab="Tingkat Pengangguran",ylab="Jumlah Penduduk Usia Produktif")
+```
+
+Tabel 1. Hubungan antara tingkat pengangguran dan jumlah penduduk usia produktif
+
+### Metode analisis
+
+Metode yang dipilih adalah regresi univariat atau Ordinary Least Square (OLS) dengan 1 variabel independen. Penelitian ini bermaksud untuk mencari hubungan antara Tingkat Pengangguran Terbuka (TPT) dan Jumlah Penduduk Usia Produktif (JPU). Spesifikasi yang dilakukan adalah sebagai berikut :
+
+$$
+y_{t}=\beta_0 + \beta_1 x_t+\mu_t
+$$ di mana $y_t$ adalah tingkat pengangguran (X) dan $x_t$ adalah jumlah penduduk usia produktif (Y).
+
+## Pembahasan
+
+### Pembahasan masalah
+
+Dikarenakan penelitian ini menggunakan OLS, maka pembahasan yang diberikan mengenai hubungan antara tingkat pengangguran dan jumlah penduduk usia produktif. Data tersebut digabung dan dilakukan regresi sehingga memiliki tampilan seperti berikut :
+
+```{r}
+#import dataset
+library(readxl)
+dat<-read_excel('C:/Users/ASUS/Documents/UAS Metopel/Projek UAS Metopel/Data UAS Projek Metopel.xlsx')
+head(dat)
+```
+
+X = Tingkat Pengangguran
+
+Y = Jumlah Penduduk Usia Produktif
+
+### Analisis masalah
+
+Hasil regresinya adalah sebagai berikut :
+
+```{r}
+reg<-lm(Y~X,data=dat)
+summary(reg)
+```
+
+## Kesimpulan
+
+Dari hasil regresi dapat dilihat bahwa setiap jumlah penduduk usia produktif di Banten mengalami peningkatan, maka tingkat pengangguran di Banten mengalami penurunan dan sebaliknya. Kecuali pada tahun 2020, karena terjadinya pandemi Covid-19 yang membuat tingkat pengangguran semakin meningkat. Dari hasil regresi tersebut dapat disimpulkan bahwa tingkat pengangguran berpengaruh terhadap jumlah penduduk usia produktif di Banten pada tahun 2010-2022.
+
+## Referensi
+
+Alfiana, S., Ramadaneta, T. F., Oktafiani, D., Putri, G. S. R., Kencana, A. R., & Desmawan, D. (2023). Analisis Tingkat Pengangguran Di Daerah Provinsi Banten Akibat Pandemi Covid-19 Tahun 2021. Wawasan : Jurnal Ilmu Manajemen, Ekonomi dan Kewirausahaan, 1(2), 252–258. https://doi.org/10.58192/wawasan.v1i2.686
+
+Badan Pusat Statistik. (n.d.-a). Penduduk Menurut Kelompok Umur dan Jenis Kelamin di Provinsi Banten (Jiwa), 2010-2022. Retrieved April 1, 2024, from https://banten.bps.go.id/indicator/12/94/1/penduduk-menurut-kelompok-umur-dan-jenis-kelamin-di-provinsi-banten.html
+
+Badan Pusat Statistik. (n.d.-b). Tingkat Pengangguran Terbuka (TPT) Menurut Kabupaten/Kota di Provinsi Banten (Persen), 2010-2022. Retrieved November 12, 2023, from https://banten.bps.go.id/indicator/6/157/1/tingkat-pengangguran-terbuka-tpt-menurut-kabupaten-kota.html
+
+egsaugm. (n.d.). Apa itu Pengangguran? Retrieved December 12, 2023, from https://egsa.geo.ugm.ac.id/2019/09/29/apa-itu-pengangguran/
+
+Franita, R., Harahap, A. F. D., & Sukriah, Y. (2019). Analisa Pengangguran di Indonesia. Nusantara ( Jurnal Ilmu Pengetahuan Sosial ), 2(1), 88–93
